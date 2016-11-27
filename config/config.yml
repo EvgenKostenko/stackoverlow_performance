@@ -1,0 +1,6 @@
+db:
+  name: SO
+  host: localhost
+
+api:
+  host: 127.0.0.1:8080
