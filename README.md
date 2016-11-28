@@ -1,6 +1,6 @@
 # MEV hackathon
 
-Read [assigment](README_assignment.md.md)
+Read [assigment](README_assignment.md)
 
 ### Dependencies
  
