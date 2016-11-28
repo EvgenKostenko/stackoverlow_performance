@@ -36,8 +36,6 @@ func GetTopUsersByWord(ctx *iris.Context) {
 		}
 	}
 
-
-
 	//fmt.Println("aggrigate posts ", time.Since(start))
 	//start = time.Now()
 
@@ -57,16 +55,13 @@ func GetTopUsersByWord(ctx *iris.Context) {
 		}
 	}
 
-
 	result := []models.User{}
-
 
 	if len(topUsersIds) < 10 {
 		result = getUsersList(lib.SortedKeysInt(topUsersIds), len(topUsersIds), &topUsersIds)
 	} else {
 		result = getUsersList(lib.SortedKeysInt(topUsersIds), 10, &topUsersIds)
 	}
-
 
 	if len(result) < 1 {
 		ctx.JSON(iris.StatusOK, models.Err("NoResults"))
@@ -93,7 +88,7 @@ func getUser(id int) models.User {
 	return models.User{}
 }
 
-func getUsersList(listKeys lib.PairIntList, len int, topUsersIds *map[int]int) []models.User{
+func getUsersList(listKeys lib.PairIntList, len int, topUsersIds *map[int]int) []models.User {
 	resultUsersList := []models.User{}
 	for _, res := range listKeys[:len] {
 		resultUsersList = append(resultUsersList, getUser(res.Key))

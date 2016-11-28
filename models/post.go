@@ -22,7 +22,7 @@ type Post struct {
 	CreationDate          string        `xml:"CreationDate,attr"  json:"CreationDate"  bson:"CreationDate"`
 	AcceptedAnswerId      int           `xml:"AcceptedAnswerId,attr"  json:"AcceptedAnswerId"  bson:"AcceptedAnswerId"`
 	LastEditorDisplayName string        `xml:"LastEditorDisplayName,attr"  json:"LastEditorDisplayName"  bson:"LastEditorDisplayName"`
-	Tags                  string      `xml:"Tags,attr"  json:"Tags"  bson:"Tags"`
+	Tags                  string        `xml:"Tags,attr"  json:"Tags"  bson:"Tags"`
 	Score                 int           `xml:"Score,attr"  json:"Score"  bson:"Score"`
 	FavoriteCount         int           `xml:"FavoriteCount,attr"  json:"FavoriteCount"  bson:"FavoriteCount"`
 	ClosedDate            string        `xml:"ClosedDate,attr"  json:"ClosedDate"  bson:"ClosedDate"`

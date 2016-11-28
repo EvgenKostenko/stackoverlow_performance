@@ -32,11 +32,8 @@ import "sort"
 //	return sm.s
 //}
 
-
-
-
 type Pair struct {
-	Key string
+	Key   string
 	Value int
 }
 
@@ -68,9 +65,8 @@ func SortedKeysStr(m map[string]int) PairList {
 	return pl
 }
 
-
 type PairInt struct {
-	Key int
+	Key   int
 	Value int
 }
 
@@ -101,4 +97,3 @@ func SortedKeysInt(m map[int]int) PairIntList {
 	sort.Sort(sort.Reverse(pl))
 	return pl
 }
-

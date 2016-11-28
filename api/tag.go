@@ -1,16 +1,15 @@
 package api
 
 import (
-
 	"errors"
+	"fmt"
 	"github.com/EvgenKostenko/stackoverlow_performance/database"
 	"github.com/EvgenKostenko/stackoverlow_performance/lib"
 	"github.com/EvgenKostenko/stackoverlow_performance/models"
 	"github.com/kataras/iris"
 	"gopkg.in/mgo.v2/bson"
-	"strings"
 	"strconv"
-	"fmt"
+	"strings"
 )
 
 // GET /toptags/:userid
@@ -55,7 +54,7 @@ func GetTopUsersTags(ctx *iris.Context) {
 
 	result := []models.Tag{}
 
-	var fringe int;
+	var fringe int
 
 	if len(topTags) < 11 {
 		fringe = len(topTags)
@@ -64,11 +63,10 @@ func GetTopUsersTags(ctx *iris.Context) {
 	}
 
 	for _, tag := range lib.SortedKeysStr(topTags)[:fringe] {
-			if fullTag, err := getTag(tag.Key); err == nil {
-				result = append(result, fullTag)
-			}
+		if fullTag, err := getTag(tag.Key); err == nil {
+			result = append(result, fullTag)
 		}
-
+	}
 
 	if len(result) < 1 {
 		ctx.JSON(iris.StatusOK, models.Err("NoResults"))

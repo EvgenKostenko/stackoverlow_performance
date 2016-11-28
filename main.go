@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/EvgenKostenko/stackoverlow_performance/api"
-	"github.com/kataras/iris"
-	"github.com/EvgenKostenko/stackoverlow_performance/config"
 	"fmt"
+	"github.com/EvgenKostenko/stackoverlow_performance/api"
+	"github.com/EvgenKostenko/stackoverlow_performance/config"
+	"github.com/kataras/iris"
 )
 
 func main() {

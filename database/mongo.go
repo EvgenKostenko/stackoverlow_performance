@@ -1,10 +1,9 @@
 package database
 
 import (
-	"gopkg.in/mgo.v2"
 	"github.com/EvgenKostenko/stackoverlow_performance/config"
+	"gopkg.in/mgo.v2"
 )
-
 
 var (
 	mainSession *mgo.Session
