@@ -2,7 +2,6 @@ package api
 
 import (
 	"errors"
-	"fmt"
 	"github.com/EvgenKostenko/stackoverlow_performance/database"
 	"github.com/EvgenKostenko/stackoverlow_performance/lib"
 	"github.com/EvgenKostenko/stackoverlow_performance/models"
@@ -49,8 +48,6 @@ func GetTopUsersTags(ctx *iris.Context) {
 			}
 		}
 	}
-
-	fmt.Println(lib.SortedKeysStr(topTags))
 
 	result := []models.Tag{}
 

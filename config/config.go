@@ -15,6 +15,10 @@ var Config = struct {
 	API struct {
 		Host string `default:"127.0.0.1:8080"`
 	}
+
+	DUMP struct {
+		Path string `default:"scifi.stackexchange.com/"`
+	}
 }{}
 
 func init() {

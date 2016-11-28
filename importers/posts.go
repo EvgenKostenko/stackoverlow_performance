@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/EvgenKostenko/stackoverlow_performance/database"
 	"github.com/EvgenKostenko/stackoverlow_performance/models"
+	"gopkg.in/mgo.v2"
 )
 
 type Posts struct {
@@ -31,5 +32,16 @@ func (p *Posts) LoadDataToDB() {
 		if err != nil {
 			fmt.Println(err)
 		}
+	}
+
+	fmt.Println("Creating index for posts")
+	index := mgo.Index{
+		Key: []string{"$text:Body"},
+	}
+
+	fmt.Println("Ensure index for posts")
+	err = db.C(p.Collection).EnsureIndex(index)
+	if err != nil {
+		panic(err)
 	}
 }

@@ -4,3 +4,6 @@ db:
 
 api:
   host: 127.0.0.1:8080
+
+dump:
+  path: scifi.stackexchange.com/

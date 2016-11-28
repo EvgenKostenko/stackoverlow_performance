@@ -19,12 +19,10 @@ func GetTopUsersByWord(ctx *iris.Context) {
 
 	var topUsersIds = make(map[int]int)
 
-	//start := time.Now()
 	var posts []struct {
 		OwnerUserId int `bson:"OwnerUserId"`
 	}
 	if err := db.C("posts").Pipe([]bson.M{{"$match": bson.M{"$text": bson.M{"$search": word}}}}).All(&posts); err == nil {
-		//if err := db.C("posts").Find(bson.M{"Body": bson.RegEx{word, ""}}).All(&posts); err == nil {
 		for _, row := range posts {
 			if row.OwnerUserId > 0 {
 				if _, ok := topUsersIds[row.OwnerUserId]; ok {
@@ -36,14 +34,10 @@ func GetTopUsersByWord(ctx *iris.Context) {
 		}
 	}
 
-	//fmt.Println("aggrigate posts ", time.Since(start))
-	//start = time.Now()
-
 	var comments []struct {
 		UserId int `bson:"UserId"`
 	}
 	if err := db.C("comments").Pipe([]bson.M{{"$match": bson.M{"$text": bson.M{"$search": word}}}}).All(&comments); err == nil {
-		//if err := db.C("comments").Find(bson.M{"Text": bson.RegEx{word, ""}}).All(&comments); err == nil {
 		for _, row := range comments {
 			if row.UserId > 0 {
 				if _, ok := topUsersIds[row.UserId]; ok {
